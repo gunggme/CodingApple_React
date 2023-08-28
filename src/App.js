@@ -10,6 +10,12 @@ function App() {
   let [text, setText] = useState(['남자코트 추천', '강남 우동맛짐', '리액트 독학'])
   let [like, setLike] = useState(0);
   
+  function setTextButton(){
+    let copy = [...text];
+    copy[0] = '여자코트 추천';
+    setText(copy);
+  }
+
   return (
     <div className="App">
       <div className="black-nav">
@@ -19,7 +25,7 @@ function App() {
       </div>
       <div className='list'>
         <h4>{ text[0] } <span onClick={ ()=>{setLike(like+1)}  }>👍</span> {like} </h4>
-        <p>8월 28일 발행</p>
+        <p>8월 28일 발행</p><button onClick={setTextButton}>글 수정</button>
       </div>
       <div className='list'>
         <h4>{ text[1] }</h4>
