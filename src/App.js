@@ -5,16 +5,8 @@ import './App.css';
 import { useState } from 'react';
 
 function App() {
-
-  let post = '오늘의 일기 작성';
   let [text, setText] = useState(['남자코트 추천', '강남 우동맛짐', '리액트 독학'])
   let [like, setLike] = useState(0);
-  
-  function setTextButton(){
-    let copy = [...text];
-    copy[0] = '여자코트 추천';
-    setText(copy);
-  }
 
   return (
     <div className="App">
@@ -25,7 +17,7 @@ function App() {
       </div>
       <div className='list'>
         <h4>{ text[0] } <span onClick={ ()=>{setLike(like+1)}  }>👍</span> {like} </h4>
-        <p>8월 28일 발행</p><button onClick={setTextButton}>글 수정</button>
+        <p>8월 28일 발행</p>
       </div>
       <div className='list'>
         <h4>{ text[1] }</h4>
@@ -35,8 +27,20 @@ function App() {
         <h4>{ text[2] }</h4>
         <p>8월 28일 발행</p>
       </div>
+
+      <Modal></Modal>
     </div>
   );
+}
+
+function Modal(){
+  return(
+    <div className='modal'>
+        <h4>제목</h4>
+        <p>날짜</p>
+        <p>상세내용</p>
+    </div>
+  )
 }
 
 export default App;
